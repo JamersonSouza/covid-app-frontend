@@ -24,6 +24,15 @@ export class AuthserviceService {
     localStorage.setItem('token', authToken);
   }
 
+  isAuthenticated(){
+    let token = localStorage.getItem('token')
+    if(token != null){
+      //token não está expirado e retorna um true;
+       return !this.jwtService.isTokenExpired(token)
+    }
+    return false;
+  }
+
 
 
 }
