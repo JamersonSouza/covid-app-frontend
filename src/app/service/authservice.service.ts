@@ -20,5 +20,10 @@ export class AuthserviceService {
     });
   }
 
+  successFulLogin(authToken : string){
+    localStorage.setItem('token', authToken);
+  }
+
+
 
 }
