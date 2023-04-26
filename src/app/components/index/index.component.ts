@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Country } from 'src/app/models/country';
+import { ResumoData } from 'src/app/models/resumo-data';
 import { CovidService } from 'src/app/service/covid.service';
 
 @Component({
@@ -8,7 +10,8 @@ import { CovidService } from 'src/app/service/covid.service';
 })
 export class IndexComponent implements OnInit{
 
-
+  resumoDados! : ResumoData;
+  countryDados! : Country | undefined;
   data : any;
 
   constructor(private covidService : CovidService){}
@@ -20,7 +23,9 @@ export class IndexComponent implements OnInit{
   listCasesGlobal():void{
     this.covidService.casesGlobal().subscribe(res => {
       this.data = res;
-      console.log(this.data);
+     this.resumoDados = res;
+     this.countryDados = this.resumoDados.Countries.find( x => x.CountryCode === 'BR');
+     console.log('Dados do BR',this.countryDados);
     })
   }
 

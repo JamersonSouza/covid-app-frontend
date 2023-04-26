@@ -12,36 +12,9 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit{
   title = 'covid-app';
 
-  visible : boolean = false
-
-  nome: FormControl = new FormControl(null, Validators.required);
-  email: FormControl = new FormControl(null, Validators.required);
-  senha: FormControl = new FormControl(null, Validators.required);
-
-
-
-  usuario : Usuario = {
-    id: '',
-    nome: '',
-    email: '',
-    senha: '',
-    dataCadastro: '',
-  }
-
-  constructor(private usuarioService : UsuarioService, private route : Router){}
 
   ngOnInit(): void {
 
   }
-  openDialog(){
-      this.visible = true;
-  }
-
-  cadastrarUsuario():void{
-    this.usuarioService.create(this.usuario).subscribe( () => {
-        console.log("Cadastrado com sucesso! " + this.usuario.nome)
-    })
-  }
-
 
 }

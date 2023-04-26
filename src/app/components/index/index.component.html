@@ -16,11 +16,14 @@
   <div class="card-container">
     <div *ngFor="let obj of data"></div>
       <div class="card" >
-          <p-card header="Resumo Global de Covid" >
-            <p class="m-0" style="color: #000;"  >{{data.Global.NewConfirmed}}</p>
-            <p class="m-0" style="color: #000;" >{{data.Global.NewDeaths}}</p>
-          </p-card>
-        </div>
+          <h2 style="text-align: center;">Resumo Global de Covid</h2><br><br>
+          <h4>Novos Casos Confirmados: <strong>{{data.Global.NewConfirmed}}</strong></h4>
+          <h4>Total de Casos Confirmados: <strong>{{data.Global.TotalConfirmed}}</strong></h4>
+          <h4>Novas Mortes: <strong>{{data.Global.NewDeaths}}</strong></h4>
+          <h4>Total de Mortes: <strong>{{data.Global.TotalDeaths}}</strong></h4>
+          <h4>Nº de Casos Recuperados: <strong>{{data.Global.NewRecovered}}</strong></h4>
+          <h4>Total de casos Recuperados: <strong>{{data.Global.TotalRecovered}}</strong></h4>
+    </div>
 
         <div class="card">
           <p-card header="Compare entre Países">
@@ -28,13 +31,11 @@
             <!-- <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" optionLabel="name"></p-multiSelect> -->
           </p-card>
         </div>
-
         <div class="card">
-          <p-card header="Situação no Brasil">
-            <p class="m-0" style="color: #000;">
-
-            </p>
-          </p-card>
+          <h2 style="text-align: center;">Situação no Brasil</h2><br><br>
+          <h4>Total de Casos Confirmados: <strong>{{countryDados?.TotalConfirmed}}</strong></h4>
+          <h4>Novos Casos Confirmados: <strong>{{countryDados?.NewConfirmed}}</strong></h4>
+          <h4>Total de Mortes: <strong>{{countryDados?.TotalDeaths}}</strong></h4>
         </div>
 
   </div>
