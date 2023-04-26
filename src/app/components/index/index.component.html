@@ -1,0 +1,41 @@
+<nav>
+  <ul class="menu">
+    <li>
+     <img src="../../../assets/logo.png" class="logo">
+    </li>
+    <li class="item button secondary"><p>Título aqui</p></li>
+    <li>
+      <form method="post">
+      <a>Logout</a>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+<div class="container" style="margin: 40px 10px;">
+  <div class="card-container">
+    <div *ngFor="let obj of data"></div>
+      <div class="card" >
+          <p-card header="Resumo Global de Covid" >
+            <p class="m-0" style="color: #000;"  >{{data.Global.NewConfirmed}}</p>
+            <p class="m-0" style="color: #000;" >{{data.Global.NewDeaths}}</p>
+          </p-card>
+        </div>
+
+        <div class="card">
+          <p-card header="Compare entre Países">
+            <p-multiSelect optionLabel="name"></p-multiSelect>
+            <!-- <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" optionLabel="name"></p-multiSelect> -->
+          </p-card>
+        </div>
+
+        <div class="card">
+          <p-card header="Situação no Brasil">
+            <p class="m-0" style="color: #000;">
+
+            </p>
+          </p-card>
+        </div>
+
+  </div>
+</div>
