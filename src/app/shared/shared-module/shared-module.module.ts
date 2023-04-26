@@ -9,18 +9,18 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
-// import { IndexComponent } from 'src/app/components/index/index.component';
+import { IndexComponent } from 'src/app/components/index/index.component';
 import { CardModule } from 'primeng/card';
-// import { TokenInterceptor } from 'src/app/interceptors/token.interceptor';
 import { TableModule } from 'primeng/table';
 import { MultiSelectModule } from 'primeng/multiselect';
-
+import { TokenInterceptor } from 'src/app/interceptors/token.interceptor';
 
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    IndexComponent
   ],
   exports: [],
   imports: [
@@ -35,6 +35,10 @@ import { MultiSelectModule } from 'primeng/multiselect';
     CardModule,
     TableModule,
     MultiSelectModule
-  ]
+  ],providers: [MessageService,
+    {provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true}],
 })
+
 export class SharedModuleModule { }
