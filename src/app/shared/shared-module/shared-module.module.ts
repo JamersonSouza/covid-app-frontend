@@ -11,9 +11,9 @@ import { MessageService } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
 import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
-import { MultiSelectModule } from 'primeng/multiselect';
 import { TokenInterceptor } from 'src/app/interceptors/token.interceptor';
 import { IndexComponent } from 'src/app/components/index/index.component';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 
@@ -34,7 +34,7 @@ import { IndexComponent } from 'src/app/components/index/index.component';
     InputTextModule,
     CardModule,
     TableModule,
-    MultiSelectModule
+    DropdownModule
   ],providers: [MessageService,
     {provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,

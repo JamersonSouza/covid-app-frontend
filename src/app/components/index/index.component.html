@@ -28,7 +28,9 @@
         <div class="card">
           <h2 style="text-align: center;">Realize comparação entre países</h2><br><br>
             <div style="text-align: center;">
-              <p-multiSelect optionLabel="name"></p-multiSelect> | <p-multiSelect optionLabel="name"></p-multiSelect>
+              <p-dropdown [options]="paises" optionLabel="Selecione um país"></p-dropdown>
+                <!-- <option *ngFor="let country of resumoDados!.Countries" [value]="country.CountryCode"></option> -->
+              | <p-dropdown optionLabel="name"></p-dropdown>
             </div>
             <div style="text-align: center; margin: 15px 0;">
             <button pButton class="p-button-success">Comparar</button>
