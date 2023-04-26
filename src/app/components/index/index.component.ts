@@ -14,6 +14,8 @@ export class IndexComponent implements OnInit{
   countryDados! : Country | undefined;
   data : any;
   paises! : Country[];
+  selectPaises! : Country;
+  OptionSelectPais! : Country;
 
   constructor(private covidService : CovidService){}
 
@@ -33,7 +35,9 @@ export class IndexComponent implements OnInit{
 
   getCountry():void{
     this.covidService.getPaises().subscribe( res => {
-      this.paises = res;
+      this.paises = res.map( (item:any) => {
+        return item.Country
+      });
     })
   }
   comparacao():void{
