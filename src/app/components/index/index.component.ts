@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CovidService } from 'src/app/service/covid.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { CovidService } from 'src/app/service/covid.service';
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent {
+export class IndexComponent implements OnInit{
 
 
   data : any;
