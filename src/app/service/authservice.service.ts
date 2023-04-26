@@ -20,8 +20,8 @@ export class AuthserviceService {
     });
   }
 
-  successFulLogin(authToken : string){
-    localStorage.setItem('token', authToken);
+  successFullLogin(authToken : string | undefined){
+    localStorage.setItem('token', authToken!);
   }
 
   isAuthenticated(){
