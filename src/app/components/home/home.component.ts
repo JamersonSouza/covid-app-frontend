@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from './models/usuario';
 import { FormControl, Validators } from '@angular/forms';
-import { UsuarioService } from './service/usuario.service';
 import { Router } from '@angular/router';
+import { Usuario } from 'src/app/models/usuario';
+import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class AppComponent implements OnInit{
-  title = 'covid-app';
+export class HomeComponent implements OnInit{
 
   visible : boolean = false
 
   nome: FormControl = new FormControl(null, Validators.required);
-  email: FormControl = new FormControl(null, Validators.required);
+  email: FormControl = new FormControl(null, Validators.email);
   senha: FormControl = new FormControl(null, Validators.required);
 
 
@@ -33,15 +32,17 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
 
   }
-  openDialog(){
-      this.visible = true;
-  }
 
-  cadastrarUsuario():void{
-    this.usuarioService.create(this.usuario).subscribe( () => {
-        console.log("Cadastrado com sucesso! " + this.usuario.nome)
-    })
-  }
+  openDialog(){
+    this.visible = true;
+}
+
+cadastrarUsuario():void{
+  this.usuarioService.create(this.usuario).subscribe( () => {
+      console.log("Cadastrado com sucesso! " + this.usuario.nome)
+  })
+}
+
 
 
 }
