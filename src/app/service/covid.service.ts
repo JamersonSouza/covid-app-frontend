@@ -4,6 +4,7 @@ import { Observable, map } from 'rxjs';
 import { API_URL } from '../config/api.config';
 import { ResumoData } from '../models/resumo-data';
 import { Country } from '../models/country';
+import { CountryData } from '../models/country-data';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,10 @@ export class CovidService {
     );
   }
 
+  getCountryData(countryName : string):Observable<CountryData>{
+    return this.http.get<CountryData>(`${API_URL.baseURL}/api-covid/countries/${countryName}`).pipe(
+      map((data:any) => data.pop())
+    );
+  }
 }
 
