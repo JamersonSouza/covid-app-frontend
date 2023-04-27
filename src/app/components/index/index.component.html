@@ -1,9 +1,9 @@
 <nav>
   <ul class="menu">
     <li>
-      <img src="../../../assets/logo.png" class="logo" />
+      <a href="index"><img src="../../../assets/logo.png" class="logo" /></a>
     </li>
-    <li class="item button secondary"><p>Título aqui</p></li>
+    <li class="item button secondary"><p>- Projeto Covid19API -</p></li>
     <li>
         <a  style="cursor: pointer; background-color: #EF4444; color: #fff; padding: 8px; border-radius: 10px;" (click)="logout()">Logout</a>
 
@@ -137,8 +137,10 @@
       <br>
 
     </div>
+
     <div style="text-align: center">
-      <button pButton pRipple label="Salvar Informações" (click)="enviarDadosBackEnd()" class="p-button-success"></button>
+      <button pButton pRipple label="Salvar Informações" (click)="visible = false" (click)="enviarDadosBackEnd()" class="p-button-success"></button>
     </div>
   </p-dialog>
 </div>
+<p-toast></p-toast>
