@@ -1,27 +1,45 @@
-# CovidApp
+# Projeto Covid19 API - Front End
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.2.
+Este é um projeto que consome o back-end da api covid-app para exibir informações sobre a pandemia do COVID-19 no mundo e em diferentes países. Além disso, este projeto possui um sistema de autenticação de usuários utilizando JWT. Foi criado com [Angular CLI](https://github.com/angular/angular-cli) version 15.1.2.
 
-## Development server
+## Instalação
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 
-## Code scaffolding
+* Node.js
+* Angular CLI
+* Visual Studio Code
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+Em seguida, execute os seguintes comandos em seu terminal para clonar o repositório projeto:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+> git clone https://github.com/JamersonSouza/covid-app-frontend.git
 
-## Running unit tests
+> **code .** (para abrir o projeto no vs code)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+> cd covid-app-frontend
 
-## Running end-to-end tests
+> **npm install** - para isntalar as dependências
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+> **ng s** - para iniciar o servidor
 
-## Further help
+Abra o navegador e acesse o endereço http://localhost:4200
+## Funcionalidades
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* Login e logout de usuários utilizando JWT
+* Visualização de estatísticas da pandemia no Mundo e no Brasil.
+* Salvar estatísticas geradas no banco de dados.
+* Guards implementado para proteção de Rotas de acesso apenas se o usuário estiver autenticado.
+* Criação de um Módulo compartilhado para os components da aplicação.
+* Interceptor para enviar o token do usuário autenticado nos headers da requisição.
+* Serviço de autenticação que salva o token no LocalStorage do navegador.
+
+## Melhorias que o projeto pode ter
+
+* Capturar o ID do usuário autenticado para enviar junto com a comparação entre países.
+
+* Feedbacks para o usuário em erros ocorridos durante o uso da aplicação.
+
+* Listagem das comparações salvas pelo o usuário.
+
+* Painel para acesso da conta do usuário com mais detalhes e funções.
