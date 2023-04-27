@@ -87,6 +87,16 @@ export class IndexComponent implements OnInit{
 }
 
       enviarDadosBackEnd():void{
+        this.covidService.saveDataCountry(this.countryRes).subscribe(res => {
+          this.msg.add({severity: 'success', summary: 'Sucesso', detail: 'As informações foram salvas!'});
+          console.log(res);
+          this.covidService.saveDataCountry(this.countryResponse).subscribe( response => {
+            console.log(response);
+          })
+        }, err => {
+          this.msg.add({severity: 'danger', summary: 'Erro', detail: 'Houve um erro ao salvar as informações!'});
+          console.log(err);
+        });
       }
 
       logout(){

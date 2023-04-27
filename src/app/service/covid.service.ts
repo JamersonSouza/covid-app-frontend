@@ -29,5 +29,9 @@ export class CovidService {
     );
   }
 
+  saveDataCountry(dados : CountryData):Observable<any>{
+    return this.http.post<any>(`${API_URL.baseURL}/api-covid/salvar`, dados);
+  }
+
 }
 
