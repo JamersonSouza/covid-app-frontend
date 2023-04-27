@@ -28,5 +28,6 @@ export class CovidService {
       map((data:any) => data.pop())
     );
   }
+
 }
 

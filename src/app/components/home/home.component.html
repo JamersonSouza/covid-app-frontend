@@ -23,7 +23,7 @@
             <input pInputText [(ngModel)]="loginUser.senha" [formControl]="senha" type="password"/>
          </div>
          <p-toast></p-toast>
-           <p-button styleClass="p-button-primary" style="margin: 0 15px;" (click)="login()">Entrar</p-button>
+           <p-button styleClass="p-button-primary" [style]="{'margin': '0 15px'}" (click)="login()">Entrar</p-button>
            <p-button styleClass="p-button-success" (click)="openDialog()">Registre-se</p-button>
 
         </form>

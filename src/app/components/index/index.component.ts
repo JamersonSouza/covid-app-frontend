@@ -1,7 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { Country } from 'src/app/models/country';
 import { CountryData } from 'src/app/models/country-data';
 import { ResumoData } from 'src/app/models/resumo-data';
+import { AuthserviceService } from 'src/app/service/authservice.service';
 import { CovidService } from 'src/app/service/covid.service';
 
 @Component({
@@ -25,13 +29,16 @@ export class IndexComponent implements OnInit{
   countryRes! : CountryData;
   countryResponse! : CountryData;
 
-  constructor(private covidService : CovidService){}
+
+
+  constructor(private covidService : CovidService, private http : HttpClient,
+     private authService : AuthserviceService,  private msg : MessageService,
+     private route : Router){}
 
   ngOnInit(): void {
     this.listCasesGlobal();
     this.getCountry();
     this.capturaPais(this.paisSelecionadoFirst);
-    console.log('valor aqui: ',this.funcaoComparar);
   }
 
   listCasesGlobal():void{
@@ -39,7 +46,6 @@ export class IndexComponent implements OnInit{
       this.data = res;
      this.resumoDados = res;
      this.countryDados = this.resumoDados.Countries.find( x => x.CountryCode === 'BR');
-     console.log('Dados do BR',this.countryDados);
     })
   }
 
@@ -77,7 +83,17 @@ export class IndexComponent implements OnInit{
 
   openDialog(){
     this.funcaoComparar = true;
-    console.log('aqui mudou : ', this.funcaoComparar)
     this.visible = true;
 }
+
+      enviarDadosBackEnd():void{
+      }
+
+      logout(){
+        this.msg.add({severity: 'danger', summary: 'Logout', detail: 'Sua conta foi desconectada!'});
+        this.route.navigate(['']);
+        this.authService.logout();
+
+      }
+
 }
